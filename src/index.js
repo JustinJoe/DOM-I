@@ -45,8 +45,9 @@ console.log('project wired!')
 const navElements = document.querySelectorAll('nav a')
 // console.log(navElements)
 for (let i = 0; i < navElements.length; i++) {
-  let navItem = `nav-item-${i + 1}`
-  navElements[i].textContent = siteContent.nav[navItem]
+  let navItem = `nav-item-${i + 1}`;
+  navElements[i].textContent = siteContent.nav[navItem];
+  navElements[i].style.fontStyle = "italic"
 }
 
 // Images
@@ -82,3 +83,4 @@ for (let i = 0; i < contactElements.length; i++) {
 // Footer
 const footerElement = document.querySelector('footer a');
 footerElement.textContent = siteContent.footer.copyright;
+footerElement.style.fontWeight = "bold";
