@@ -40,3 +40,45 @@ const siteContent = { // DO NOT CHANGE THIS OBJECT
 };
 
 console.log('project wired!')
+
+// Nav Items
+const navElements = document.querySelectorAll('nav a')
+// console.log(navElements)
+for (let i = 0; i < navElements.length; i++) {
+  let navItem = `nav-item-${i + 1}`
+  navElements[i].textContent = siteContent.nav[navItem]
+}
+
+// Images
+const imgElements = document.querySelectorAll('img');
+for (let img of imgElements) {
+  if (img.id === 'middle-img') {
+    img.id = 'accent-img'
+  }
+  img.src = siteContent.images[img.id]
+}
+
+// CTA Text
+const ctaTextElements = Array.from(document.querySelector('.cta-text').children);
+for (let element of ctaTextElements) {
+  element.textContent = siteContent.cta[element.tagName.toLowerCase()]
+}
+
+// Content
+const contentParent = [...document.querySelectorAll('.text-content')];
+const contentElements = contentParent.map(item => [...item.children]).flat()
+const contentArray = Object.keys(siteContent["main-content"])
+for (let i = 0; i < contentElements.length; i++) {
+  contentElements[i].textContent = siteContent["main-content"][contentArray[i]]
+}
+
+// Contact
+const contactElements = Array.from(document.querySelector('.contact').children)
+const contactArray = Object.keys(siteContent.contact)
+for (let i = 0; i < contactElements.length; i++) {
+  contactElements[i].textContent = siteContent.contact[contactArray[i]];
+}
+
+// Footer
+const footerElement = document.querySelector('footer a');
+footerElement.textContent = siteContent.footer.copyright;
